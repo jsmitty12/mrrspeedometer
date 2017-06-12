@@ -1,0 +1,25 @@
+{
+  "name": "mrrspeedometer",
+  "version": "0.1.0",
+  "description": "Model Railroad Speedometer",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jasmine": "^1.1.0",
+    "jasmine": "^2.6.0"
+  },
+  "scripts": {
+    "test": "grunt jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsmitty12/mrrspeedometer.git"
+  },
+  "author": "Joshua Smith <jsmith@jssm.com>",
+  "license": "AGPL-3.0+",
+  "bugs": {
+    "url": "https://github.com/jsmitty12/mrrspeedometer/issues"
+  },
+  "homepage": "https://github.com/jsmitty12/mrrspeedometer#readme"
+}

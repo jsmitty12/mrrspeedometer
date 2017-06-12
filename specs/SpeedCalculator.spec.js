@@ -54,11 +54,11 @@ describe('SpeedCalculator calculates', function () {
         });
 
         it('48 inches', function () {
-            expect(SpeedCalculator.calculate(48, 10, this.scale)).toBe(23.73);
+            expect(SpeedCalculator.calculate(48, 10, this.scale)).toBe(23.75);
         });
 
         it('12 inches', function () {
-            expect(SpeedCalculator.calculate(12, 7, this.scale)).toBe(8.47);
+            expect(SpeedCalculator.calculate(12, 7, this.scale)).toBe(8.48);
         });
     });
 
@@ -76,11 +76,11 @@ describe('SpeedCalculator calculates', function () {
         });
 
         it('48 inches', function () {
-            expect(SpeedCalculator.calculate(48, 10, this.scale)).toBe(0);
+            expect(SpeedCalculator.calculate(48, 10, this.scale)).toBe(13.09);
         });
 
         it('12 inches', function () {
-            expect(SpeedCalculator.calculate(12, 7, this.scale)).toBe(0);
+            expect(SpeedCalculator.calculate(12, 7, this.scale)).toBe(4.68);
         });
     });
 });
