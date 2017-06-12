@@ -15,12 +15,12 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-window.SpeedCalculator = {
-    SCALE_Z: 220,   // @todo what is this, really?
+SpeedCalculator = {
+    // @see https://en.wikipedia.org/wiki/List_of_rail_transport_modelling_scale_standards#NMRA
+    SCALE_Z: 220,
     SCALE_N: 160,
-    SCALE_HO: 87,
-    SCALE_S: 1, // @todo what is this, really?
-    SCALE_O: 1, // @todo what is this, really?
+    SCALE_HO: 87.1,
+    SCALE_O: 48,
 
     /**
      *
@@ -44,6 +44,6 @@ window.SpeedCalculator = {
         scaleMilesPerSecond = scaleInchesPerSecond / 12 / 5280;
         scaleMilesPerHour = scaleMilesPerSecond * 3600;
 
-        return Number.parseFloat(scaleMilesPerHour.toFixed(2));
+        return parseFloat(scaleMilesPerHour.toFixed(2));
     }
 };
