@@ -15,12 +15,13 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 describe('SpeedCalculator calculates', function () {
     'use strict';
 
     describe('N scale', function () {
         beforeEach(function () {
-            this.scale = SpeedCalculator.SCALE_N;
+            this.scale = SCALE_N;
         });
 
         it('zero duration', function () {
@@ -40,47 +41,13 @@ describe('SpeedCalculator calculates', function () {
         });
     });
 
-    describe('HO scale', function () {
-        beforeEach(function () {
-            this.scale = SpeedCalculator.SCALE_HO;
+    describe('Other scales', function () {
+        it('HO Scale; 48 inches', function () {
+            expect(SpeedCalculator.calculate(48, 10, SCALE_HO)).toBe(23.75);
         });
 
-        it('zero duration', function () {
-            expect(SpeedCalculator.calculate(10, 0, this.scale)).toBe(0);
-        });
-
-        it('zero distance', function () {
-            expect(SpeedCalculator.calculate(0, 10, this.scale)).toBe(0);
-        });
-
-        it('48 inches', function () {
-            expect(SpeedCalculator.calculate(48, 10, this.scale)).toBe(23.75);
-        });
-
-        it('12 inches', function () {
-            expect(SpeedCalculator.calculate(12, 7, this.scale)).toBe(8.48);
-        });
-    });
-
-    describe('O scale', function () {
-        beforeEach(function () {
-            this.scale = SpeedCalculator.SCALE_O;
-        });
-
-        it('zero duration', function () {
-            expect(SpeedCalculator.calculate(10, 0, this.scale)).toBe(0);
-        });
-
-        it('zero distance', function () {
-            expect(SpeedCalculator.calculate(0, 10, this.scale)).toBe(0);
-        });
-
-        it('48 inches', function () {
-            expect(SpeedCalculator.calculate(48, 10, this.scale)).toBe(13.09);
-        });
-
-        it('12 inches', function () {
-            expect(SpeedCalculator.calculate(12, 7, this.scale)).toBe(4.68);
+        it('O Scale; 48 inches', function () {
+            expect(SpeedCalculator.calculate(48, 10, SCALE_O)).toBe(13.09);
         });
     });
 });

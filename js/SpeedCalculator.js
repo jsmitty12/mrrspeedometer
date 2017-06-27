@@ -15,12 +15,14 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
+const SCALE_Z = 220;
+const SCALE_N = 160;
+const SCALE_HO = 87.1;
+const SCALE_O = 48;
+
 SpeedCalculator = {
     // @see https://en.wikipedia.org/wiki/List_of_rail_transport_modelling_scale_standards#NMRA
-    SCALE_Z: 220,
-    SCALE_N: 160,
-    SCALE_HO: 87.1,
-    SCALE_O: 48,
 
     /**
      *
@@ -30,19 +32,14 @@ SpeedCalculator = {
      * @returns {number}
      */
     calculate: function (distance, duration, scale) {
-        var scaleInches,
-            scaleInchesPerSecond,
-            scaleMilesPerSecond,
-            scaleMilesPerHour;
-
         if (distance <= 0 || duration <= 0 || scale <= 0) {
             return 0;
         }
 
-        scaleInches = distance * scale;
-        scaleInchesPerSecond = scaleInches / duration;
-        scaleMilesPerSecond = scaleInchesPerSecond / 12 / 5280;
-        scaleMilesPerHour = scaleMilesPerSecond * 3600;
+        let scaleInches = distance * scale;
+        let scaleInchesPerSecond = scaleInches / duration;
+        let scaleMilesPerSecond = scaleInchesPerSecond / 12 / 5280;
+        let scaleMilesPerHour = scaleMilesPerSecond * 3600;
 
         return parseFloat(scaleMilesPerHour.toFixed(2));
     }
