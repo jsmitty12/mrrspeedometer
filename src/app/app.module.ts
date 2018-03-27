@@ -10,7 +10,7 @@ import {AppComponent} from './app.component';
 
 import {environment} from '../environments/environment';
 import {MainViewComponent} from './views/main-view/main-view.component';
-import {CardModule, DropdownModule} from "primeng/primeng";
+import {CardModule, DropdownModule, ToggleButtonModule} from "primeng/primeng";
 
 @NgModule({
     declarations: [
@@ -27,7 +27,8 @@ import {CardModule, DropdownModule} from "primeng/primeng";
         CardModule,
         DropdownModule,
         FormsModule,
-        ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
+        ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+        ToggleButtonModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

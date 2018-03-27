@@ -1,10 +1,10 @@
 <div class="ui-g">
     <p-card
-        class="ui-g-12 ui-lg-8 ui-lg-offset-2"
+        class="ui-g ui-g-12 ui-lg-8 ui-lg-offset-2"
         title="Model Railroad Speed Calculator"
     >
-        <div class="ui-g">
-            <div class="form-group ui-lg-6">
+        <div class="ui-g ui-g-12">
+            <div class="ui-lg-6">
                 <label for="scale">Scale</label>
                 <p-dropdown
                     inputId="scale"
@@ -14,7 +14,7 @@
                     required="true"
                 ></p-dropdown>
             </div>
-            <div class="form-group ui-lg-6">
+            <div class="ui-lg-6">
                 <label for="distance" class="control-label">Distance</label>
                 <p-dropdown
                     inputId="distance"
@@ -25,24 +25,33 @@
                 ></p-dropdown>
             </div>
         </div>
-        <div class="ui-g">
-            <div class="form-group ui-lg-6">
-                <label>Time</label>
-                <span>{{time}}</span>
+        <div class="ui-g ui-g-12">
+            <div class="ui-inputgroup ui-lg-6">
+                <input
+                    type="text"
+                    pInputText
+                    title="Time elapsed"
+                    [readonly]="true"
+                    [(ngModel)]="time">
+                <span class="ui-inputgroup-addon">seconds</span>
             </div>
-            <div class="form-group ui-lg-6">
-                <label>Calculated speed</label>
-                <span>{{speed}} MPH</span>
+            <div class="ui-inputgroup ui-lg-6">
+                <input
+                    type="text"
+                    pInputText
+                    title="Speed"
+                    [readonly]="true"
+                    [(ngModel)]="speed">
+                <span class="ui-inputgroup-addon">MPH</span>
             </div>
         </div>
         <div class="ui-g-12">
-            <button
-                pButton
-                id="start"
-                class="btn btn-primary btn-lg"
-                (click)="calculateSpeed()"
-            >Start
-            </button>
+            <p-toggleButton
+                [(ngModel)]="timerRunning"
+                onLabel="Stop"
+                offLabel="Start"
+                (onChange)="calculateSpeed($event)"
+            ></p-toggleButton>
         </div>
     </p-card>
 </div>

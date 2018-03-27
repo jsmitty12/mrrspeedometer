@@ -37,12 +37,39 @@ export class MainViewComponent {
         }
     ];
 
+    timerRunning = false;
+
     scale: number;
     distance: number;
+    startTime: number;
     time: number = 1;
     speed: number = 0;
 
-    calculateSpeed() {
-        this.speed = SpeedCalculator.calculate(this.distance, this.time, this.scale);
+    calculateSpeed(event) {
+        if (event.checked) {
+            this.startTime = Date.now();
+            this.speed = null;
+
+            window.setTimeout(() => {
+                this.timerFunction();
+            }, 100);
+        } else {
+            this.calculateElapsedTime();
+            this.speed = SpeedCalculator.calculate(this.distance, this.time, this.scale);
+        }
+    }
+
+    timerFunction() {
+        this.calculateElapsedTime();
+
+        if (this.timerRunning) {
+            window.setTimeout(() => {
+                this.timerFunction();
+            }, 100);
+        }
+    }
+
+    private calculateElapsedTime() {
+        this.time = (Date.now() - this.startTime) / 1000;
     }
 }
