@@ -7,10 +7,15 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {AppComponent} from './app.component';
 
 import {environment} from '../environments/environment';
+import { MainViewComponent } from './views/main-view/main-view.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        MainViewComponent
+    ],
+    entryComponents: [
+        MainViewComponent
     ],
     imports: [
         BrowserModule,
