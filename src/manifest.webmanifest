@@ -1,0 +1,38 @@
+{
+    "name": "Model Railroad Speedometer",
+    "short_name": "MRR Speedometer",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#fff",
+    "description": "Estimate your model train's scale speed with this manual timer.",
+    "lang": "en-US",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "assets/images/tachometer-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/tachometer-128x128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/tachometer-64x64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/tachometer-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "assets/images/tachometer-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        }
+    ]
+}
