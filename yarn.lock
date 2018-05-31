@@ -7052,8 +7052,8 @@ pretty-format@^21.2.1:
     ansi-styles "^3.2.0"
 
 primeng@^5.2.3:
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/primeng/-/primeng-5.2.3.tgz#f4f9c1772d00cb54505d676be826e8886fd7f613"
+  version "5.2.7"
+  resolved "https://registry.yarnpkg.com/primeng/-/primeng-5.2.7.tgz#9dcf461b6a82ea46de85751dc235ea82303e64b1"
 
 private@^0.1.7:
   version "0.1.8"
