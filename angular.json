@@ -19,7 +19,7 @@
                         "assets": [
                             "src/assets",
                             "src/favicon.ico",
-                            "src/manifest.webmanifest"
+                            "src/manifest.json"
                         ],
                         "styles": [
                             "src/styles.scss",
@@ -41,7 +41,7 @@
                             "vendorChunk": false,
                             "buildOptimizer": true,
                             "serviceWorker": true,
-                            "ngswConfigPath": "/src/ngsw-config.json",
+                            "ngswConfigPath": "ngsw-config.json",
                             "fileReplacements": [
                                 {
                                     "replace": "src/environments/environment.ts",
@@ -85,7 +85,7 @@
                         "assets": [
                             "src/assets",
                             "src/favicon.ico",
-                            "src/manifest.webmanifest"
+                            "src/manifest.json"
                         ]
                     }
                 },
