@@ -1,56 +1,44 @@
 <div class="ui-g">
     <p-card
-        class="ui-g ui-g-12 ui-lg-8 ui-lg-offset-2"
+        class="ui-g ui-g-12 ui-md-8 ui-md-offset-2"
         title="Model Railroad Speed Calculator"
     >
-        <div class="ui-g ui-g-12">
-            <div class="ui-lg-6">
-                <label for="scale">Scale</label>
-                <p-dropdown
-                    inputId="scale"
-                    [(ngModel)]="scale"
-                    [options]="scales"
-                    [autoDisplayFirst]="false"
-                    required="true"
-                ></p-dropdown>
-            </div>
-            <div class="ui-lg-6">
-                <label for="distance" class="control-label">Distance</label>
-                <p-dropdown
-                    inputId="distance"
-                    [(ngModel)]="distance"
-                    [options]="distances"
-                    [autoDisplayFirst]="false"
-                    required="true"
-                ></p-dropdown>
-            </div>
+        <div class="ui-g-12 ui-md-6 align-center">
+            <span class="value large">{{speed}}</span>
+            <span class="units">MPH</span>
         </div>
-        <div class="ui-g ui-g-12">
-            <div class="ui-inputgroup ui-lg-6">
-                <input
-                    type="text"
-                    pInputText
-                    title="Time elapsed"
-                    [readonly]="true"
-                    [(ngModel)]="time">
-                <span class="ui-inputgroup-addon">seconds</span>
-            </div>
-            <div class="ui-inputgroup ui-lg-6">
-                <input
-                    type="text"
-                    pInputText
-                    title="Speed"
-                    [readonly]="true"
-                    [(ngModel)]="speed">
-                <span class="ui-inputgroup-addon">MPH</span>
-            </div>
+        <div class="ui-g-12 ui-md-6 align-center">
+            <span class="value">{{time}}</span>
+            <span class="units">seconds</span>
         </div>
-        <div class="ui-g-12">
+        <div class="ui-g-12 ui-md-6 align-center">
+            <label for="scale">Scale</label>
+            <p-dropdown
+                inputId="scale"
+                [(ngModel)]="scale"
+                [options]="scales"
+                [autoDisplayFirst]="false"
+                required="true"
+            ></p-dropdown>
+        </div>
+        <div class="ui-g-12 ui-md-6 align-center">
+            <label for="distance" class="control-label">Distance</label>
+            <p-dropdown
+                inputId="distance"
+                [(ngModel)]="distance"
+                [options]="distances"
+                [autoDisplayFirst]="false"
+                required="true"
+            ></p-dropdown>
+        </div>
+        <div class="ui-g-12 align-center">
             <p-toggleButton
                 [(ngModel)]="timerRunning"
                 onLabel="Stop"
                 offLabel="Start"
                 (onChange)="calculateSpeed($event)"
+                class="large"
+                [disabled]="!scale && !distance"
             ></p-toggleButton>
         </div>
     </p-card>
