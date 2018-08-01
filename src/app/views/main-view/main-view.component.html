@@ -4,7 +4,7 @@
         title="Model Railroad Speed Calculator"
     >
         <div class="ui-g-12 ui-md-6 align-center">
-            <span class="value large">{{speed}}</span>
+            <span class="value large" [class.strikethrough]="timerRunning">{{speed}}</span>
             <span class="units">MPH</span>
         </div>
         <div class="ui-g-12 ui-md-6 align-center">
@@ -36,7 +36,7 @@
                 [(ngModel)]="timerRunning"
                 onLabel="Stop"
                 offLabel="Start"
-                (onChange)="calculateSpeed($event)"
+                (onChange)="toggleTimer($event)"
                 class="large"
                 [disabled]="!scale && !distance"
             ></p-toggleButton>

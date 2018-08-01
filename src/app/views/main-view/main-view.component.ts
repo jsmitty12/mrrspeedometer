@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {SelectItem} from "primeng/api";
-import {Scales, SpeedCalculator} from "../../../lib/speed-calculator";
+import { Component } from '@angular/core';
+import { SelectItem } from 'primeng/api';
+import { Scales, SpeedCalculator } from '../../lib/speed-calculator';
 
 @Component({
     selector: 'app-main-view',
@@ -45,28 +45,29 @@ export class MainViewComponent {
     time: number = 1;
     speed: number = 0;
 
-    calculateSpeed(event) {
+    toggleTimer(event) {
         if (event.checked) {
             this.startTime = Date.now();
-            this.speed = null;
-
-            window.setTimeout(() => {
-                this.timerFunction();
-            }, 100);
+            this.timerFunction();
         } else {
             this.calculateElapsedTime();
-            this.speed = SpeedCalculator.calculate(this.distance, this.time, this.scale);
+            this.calculateSpeed();
         }
     }
 
     timerFunction() {
         this.calculateElapsedTime();
+        this.calculateSpeed();
 
         if (this.timerRunning) {
             window.setTimeout(() => {
                 this.timerFunction();
             }, 100);
         }
+    }
+
+    private calculateSpeed() {
+        this.speed = SpeedCalculator.calculate(this.distance, this.time, this.scale);
     }
 
     private calculateElapsedTime() {
