@@ -11,8 +11,8 @@ export class PreferencesService {
     constructor() { }
 
     save(prefs: Preferences) {
-        window.localStorage.setItem(PREF_DISTANCE, prefs.distance.toFixed());
-        window.localStorage.setItem(PREF_SCALE, prefs.scale.toFixed());
+        window.localStorage.setItem(PREF_DISTANCE, prefs.distance.toString());
+        window.localStorage.setItem(PREF_SCALE, prefs.scale.toString());
     }
 
     load(): Preferences {

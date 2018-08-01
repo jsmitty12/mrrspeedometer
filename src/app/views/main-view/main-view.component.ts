@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { Scales, SpeedCalculator } from '../../lib/speed-calculator';
+import { PreferencesService } from '../../services/preferences.service';
+import { Preferences } from '../../models/preferences';
 
 @Component({
     selector: 'app-main-view',
     templateUrl: './main-view.component.html',
     styleUrls: ['./main-view.component.scss']
 })
-export class MainViewComponent {
+export class MainViewComponent implements OnInit {
     scales: SelectItem[] = [
         {
             label: `N (1:${Scales.N})`,
@@ -45,6 +47,17 @@ export class MainViewComponent {
     time: number = 1;
     speed: number = 0;
 
+    constructor(
+        private preferencesSvc: PreferencesService
+    ) { }
+
+    ngOnInit() {
+        const preferences = this.preferencesSvc.load();
+
+        this.distance = preferences.distance || 12;
+        this.scale = preferences.scale || Scales.N;
+    }
+
     toggleTimer(event) {
         if (event.checked) {
             this.startTime = Date.now();
@@ -64,6 +77,13 @@ export class MainViewComponent {
                 this.timerFunction();
             }, 100);
         }
+    }
+
+    savePreferences() {
+        this.preferencesSvc.save({
+            distance: this.distance,
+            scale: this.scale
+        });
     }
 
     private calculateSpeed() {

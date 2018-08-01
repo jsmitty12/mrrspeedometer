@@ -32,6 +32,12 @@
             ></p-dropdown>
         </div>
         <div class="ui-g-12 align-center">
+            <p-button
+                label="Save Preferences"
+                (click)="savePreferences()"
+            ></p-button>
+        </div>
+        <div class="ui-g-12 align-center">
             <p-toggleButton
                 [(ngModel)]="timerRunning"
                 onLabel="Stop"
