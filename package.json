@@ -13,12 +13,16 @@
     },
     "homepage": "https://github.com/jsmitty12/mrrspeedometer#readme",
     "jest": {
+        "testURL": "http://localhost:4300/",
         "preset": "jest-preset-angular",
         "setupTestFrameworkScriptFile": "<rootDir>/src/setupJest.ts",
         "moduleNameMapper": {
             "\\.(jpg|jpeg|png)$": "<rootDir>/__mocks__/image.js",
             "^shared/(.*)": "<rootDir>/src/shared/$1"
-        }
+        },
+        "testPathIgnorePatterns": [
+            "<rootDir>/cypress/"
+        ]
     },
     "scripts": {
         "ng": "ng",
