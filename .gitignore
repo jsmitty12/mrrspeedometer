@@ -104,3 +104,8 @@ typings/
 # dotenv environment variables file
 .env
 junit/
+dist/
+
+cypress/
+
+.firebaserc
