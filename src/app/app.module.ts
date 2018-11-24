@@ -14,8 +14,10 @@ import {
     ButtonModule,
     CardModule,
     DropdownModule,
-    ToggleButtonModule
+    MessageService,
+    ToggleButtonModule,
 } from 'primeng/primeng';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
     declarations: [
@@ -34,9 +36,12 @@ import {
         DropdownModule,
         FormsModule,
         ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+        ToastModule,
         ToggleButtonModule,
     ],
-    providers: [],
+    providers: [
+        MessageService,
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {

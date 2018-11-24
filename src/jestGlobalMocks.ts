@@ -15,3 +15,5 @@ const storageMock = () => {
 };
 Object.defineProperty(window, 'sessionStorage', {value: storageMock()});
 Object.defineProperty(window, 'localStorage', {value: storageMock()});
+
+// Object.defineProperty(global, 'XMLHttpRequest', { value: {} });

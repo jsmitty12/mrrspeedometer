@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectItem } from 'primeng/api';
+import {
+    SelectItem,
+} from 'primeng/api';
 import { Scales, SpeedCalculator } from '../../lib/speed-calculator';
 import { PreferencesService } from '../../services/preferences.service';
-import { Preferences } from '../../models/preferences';
+import { ToastService } from 'app/services/toast.service';
 
 @Component({
     selector: 'app-main-view',
@@ -44,11 +46,12 @@ export class MainViewComponent implements OnInit {
     scale: number;
     distance: number;
     startTime: number;
-    time: number = 1;
+    time: number = 0;
     speed: number = 0;
 
     constructor(
-        private preferencesSvc: PreferencesService
+        private preferencesSvc: PreferencesService,
+        private toastSvc: ToastService
     ) { }
 
     ngOnInit() {
@@ -84,6 +87,8 @@ export class MainViewComponent implements OnInit {
             distance: this.distance,
             scale: this.scale
         });
+
+        this.toastSvc.success('Preferences Saved');
     }
 
     private calculateSpeed() {
