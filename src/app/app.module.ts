@@ -11,38 +11,28 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { MainViewComponent } from './views/main-view/main-view.component';
 import {
-    ButtonModule,
-    CardModule,
-    DropdownModule,
-    MessageService,
-    ToggleButtonModule,
-} from 'primeng/primeng';
-import { ToastModule } from 'primeng/toast';
+    MatButtonToggleModule,
+    MatCardModule,
+    MatSelectModule,
+    MatSnackBarModule,
+} from '@angular/material';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        MainViewComponent,
-    ],
-    entryComponents: [
-        MainViewComponent
-    ],
+    declarations: [AppComponent, MainViewComponent],
+    entryComponents: [MainViewComponent],
     imports: [
         AppRoutingModule,
         BrowserAnimationsModule,
         BrowserModule,
-        ButtonModule,
-        CardModule,
-        DropdownModule,
         FormsModule,
-        ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-        ToastModule,
-        ToggleButtonModule,
+        ServiceWorkerModule.register('/ngsw-worker.js', {
+            enabled: environment.production,
+        }),
+        MatSelectModule,
+        MatButtonToggleModule,
+        MatCardModule,
+        MatSnackBarModule,
     ],
-    providers: [
-        MessageService,
-    ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
