@@ -10,12 +10,10 @@ import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
 import { MainViewComponent } from './views/main-view/main-view.component';
-import {
-    MatButtonToggleModule,
-    MatCardModule,
-    MatSelectModule,
-    MatSnackBarModule,
-} from '@angular/material';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     declarations: [AppComponent, MainViewComponent],

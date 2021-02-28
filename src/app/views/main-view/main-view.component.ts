@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Scales, SpeedCalculator } from '../../lib/speed-calculator';
 import { PreferencesService } from '../../services/preferences.service';
 import { SelectItem } from 'app/models/select-item';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'app-main-view',
