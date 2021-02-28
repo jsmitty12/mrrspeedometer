@@ -1,19 +1,27 @@
-import {NgModule} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {ActivatedRoute, Routes, Router, RouterModule, NavigationEnd} from '@angular/router';
-import {MainViewComponent} from "./views/main-view/main-view.component";
+import { NgModule } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import {
+    ActivatedRoute,
+    Routes,
+    Router,
+    RouterModule,
+    NavigationEnd,
+} from '@angular/router';
+import { MainViewComponent } from './views/main-view/main-view.component';
 
 const routes: Routes = [
     {
         path: '',
         component: MainViewComponent,
-        pathMatch: 'full'
-    }
+        pathMatch: 'full',
+    },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    imports: [
+        RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
+    ],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {
     private readonly appTitle = 'Model Railroad Speedometer';
