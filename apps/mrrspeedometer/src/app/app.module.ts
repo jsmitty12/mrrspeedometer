@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
-// import { ServiceWorkerModule } from '@angular/service-worker';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
@@ -16,21 +16,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [AppComponent, MainViewComponent],
-  entryComponents: [MainViewComponent],
-  imports: [
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    FormsModule,
-    // ServiceWorkerModule.register('/ngsw-worker.js', {
-    //     enabled: environment.production,
-    // }),
-    MatSelectModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatSnackBarModule,
-  ],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent, MainViewComponent],
+    entryComponents: [MainViewComponent],
+    imports: [
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        FormsModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+        }),
+        MatSelectModule,
+        MatButtonToggleModule,
+        MatCardModule,
+        MatSnackBarModule,
+    ],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}
