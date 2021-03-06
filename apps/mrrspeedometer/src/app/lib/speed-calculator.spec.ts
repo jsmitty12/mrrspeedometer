@@ -16,38 +16,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import {Scales, SpeedCalculator} from './speed-calculator';
+import { Scales, SpeedCalculator } from './speed-calculator';
 
 describe('SpeedCalculator', () => {
-  describe('N scale', () => {
-    beforeEach(() => {
-      this.scale = Scales.N;
+    let scale: Scales;
+    describe('N scale', () => {
+        beforeEach(() => {
+            scale = Scales.N;
+        });
+
+        it('zero duration', () => {
+            expect(SpeedCalculator.calculate(10, 0, scale)).toBe(0);
+        });
+
+        it('zero distance', () => {
+            expect(SpeedCalculator.calculate(0, 10, scale)).toBe(0);
+        });
+
+        it('48 inches (n-track single)', () => {
+            expect(SpeedCalculator.calculate(48, 10, scale)).toBe(43.64);
+        });
+
+        it('12 inches (t-trak single)', () => {
+            expect(SpeedCalculator.calculate(12, 7, scale)).toBe(15.58);
+        });
     });
 
-    it('zero duration', () => {
-      expect(SpeedCalculator.calculate(10, 0, this.scale)).toBe(0);
-    });
+    describe('Other scales', () => {
+        it('HO Scale; 48 inches', () => {
+            expect(SpeedCalculator.calculate(48, 10, Scales.HO)).toBe(23.75);
+        });
 
-    it('zero distance', () => {
-      expect(SpeedCalculator.calculate(0, 10, this.scale)).toBe(0);
+        it('O Scale; 48 inches', () => {
+            expect(SpeedCalculator.calculate(48, 10, Scales.O)).toBe(13.09);
+        });
     });
-
-    it('48 inches (n-track single)', () => {
-      expect(SpeedCalculator.calculate(48, 10, this.scale)).toBe(43.64);
-    });
-
-    it('12 inches (t-trak single)', () => {
-      expect(SpeedCalculator.calculate(12, 7, this.scale)).toBe(15.58);
-    });
-  });
-
-  describe('Other scales', () => {
-    it('HO Scale; 48 inches', () => {
-      expect(SpeedCalculator.calculate(48, 10, Scales.HO)).toBe(23.75);
-    });
-
-    it('O Scale; 48 inches', () => {
-      expect(SpeedCalculator.calculate(48, 10, Scales.O)).toBe(13.09);
-    });
-  });
 });

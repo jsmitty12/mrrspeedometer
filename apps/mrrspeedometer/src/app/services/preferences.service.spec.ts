@@ -1,6 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PreferencesService, PREF_DISTANCE, PREF_SCALE } from './preferences.service';
+import {
+    PreferencesService,
+    PREF_DISTANCE,
+    PREF_SCALE,
+} from './preferences.service';
 import { Preferences } from '../models/preferences';
 
 describe('PreferencesService', () => {
@@ -8,12 +12,12 @@ describe('PreferencesService', () => {
 
     const prefs = <Preferences>{
         distance: 12,
-        scale: 160
+        scale: 160,
     };
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [PreferencesService]
+            providers: [PreferencesService],
         });
 
         service = TestBed.get(PreferencesService);
@@ -46,8 +50,9 @@ describe('PreferencesService', () => {
 
     // jest.spyOn(window.localStorage) is broken
     xit('should load preferences', () => {
-        jest.spyOn(window.localStorage, 'getItem')
-            .mockImplementation((key: string) => `${prefs[key]}`);
+        jest.spyOn(window.localStorage, 'getItem').mockImplementation(
+            (key: string) => `${prefs[key]}`
+        );
 
         const p = service.load();
 

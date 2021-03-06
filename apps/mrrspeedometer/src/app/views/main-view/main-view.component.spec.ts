@@ -1,5 +1,6 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { MainViewComponent } from './main-view.component';
 
@@ -11,6 +12,7 @@ describe('MainViewComponent', () => {
         waitForAsync(() => {
             TestBed.configureTestingModule({
                 declarations: [MainViewComponent],
+                imports: [MatSnackBarModule],
                 schemas: [NO_ERRORS_SCHEMA],
             }).compileComponents();
         })
