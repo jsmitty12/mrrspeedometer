@@ -1,142 +1,161 @@
 {
-    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-    "version": 1,
-    "newProjectRoot": "projects",
-    "projects": {
-        "mrrspeed": {
-            "root": "",
-            "sourceRoot": "src",
-            "projectType": "application",
-            "architect": {
-                "build": {
-                    "builder": "@angular-devkit/build-angular:browser",
-                    "options": {
-                        "outputPath": "dist",
-                        "index": "src/index.html",
-                        "main": "src/main.ts",
-                        "tsConfig": "src/tsconfig.app.json",
-                        "polyfills": "src/polyfills.ts",
-                        "assets": [
-                            "src/assets",
-                            "src/favicon.ico",
-                            "src/manifest.json"
-                        ],
-                        "styles": [
-                            "src/styles.scss",
-                            "node_modules/primeicons/primeicons.css",
-                            "node_modules/primeng/resources/themes/omega/theme.css",
-                            "node_modules/primeng/resources/primeng.min.css"
-                        ],
-                        "scripts": []
-                    },
-                    "configurations": {
-                        "production": {
-                            "optimization": true,
-                            "outputHashing": "all",
-                            "sourceMap": false,
-                            "extractCss": true,
-                            "namedChunks": false,
-                            "aot": true,
-                            "extractLicenses": true,
-                            "vendorChunk": false,
-                            "buildOptimizer": true,
-                            "serviceWorker": true,
-                            "fileReplacements": [
-                                {
-                                    "replace": "src/environments/environment.ts",
-                                    "with": "src/environments/environment.prod.ts"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "serve": {
-                    "builder": "@angular-devkit/build-angular:dev-server",
-                    "options": {
-                        "port": 4300,
-                        "browserTarget": "mrrspeed:build"
-                    },
-                    "configurations": {
-                        "production": {
-                            "browserTarget": "mrrspeed:build:production"
-                        }
-                    }
-                },
-                "extract-i18n": {
-                    "builder": "@angular-devkit/build-angular:extract-i18n",
-                    "options": {
-                        "browserTarget": "mrrspeed:build"
-                    }
-                },
-                "test": {
-                    "builder": "@angular-devkit/build-angular:karma",
-                    "options": {
-                        "main": "src/test.ts",
-                        "karmaConfig": "./karma.conf.js",
-                        "polyfills": "src/polyfills.ts",
-                        "tsConfig": "src/tsconfig.spec.json",
-                        "scripts": [],
-                        "styles": [
-                            "src/styles.scss",
-                            "node_modules/primeicons/primeicons.css",
-                            "node_modules/primeng/resources/themes/omega/theme.css",
-                            "node_modules/primeng/resources/primeng.min.css"
-                        ],
-                        "assets": [
-                            "src/assets",
-                            "src/favicon.ico",
-                            "src/manifest.json"
-                        ]
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "src/tsconfig.app.json",
-                            "src/tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
-                }
-            }
-        },
-        "mrrspeed-e2e": {
-            "root": "",
-            "sourceRoot": "",
-            "projectType": "application",
-            "architect": {
-                "e2e": {
-                    "builder": "@angular-devkit/build-angular:protractor",
-                    "options": {
-                        "protractorConfig": "./protractor.conf.js",
-                        "devServerTarget": "mrrspeed:serve"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "e2e/tsconfig.e2e.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
-                    }
-                }
-            }
-        }
+  "version": 1,
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": "d8179317-76a8-4824-a0ff-5731231e16c5"
+  },
+  "defaultProject": "mrrspeedometer",
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
-    "defaultProject": "mrrspeed",
-    "schematics": {
-        "@schematics/angular:component": {
-            "prefix": "app",
-            "styleext": "scss"
-        },
-        "@schematics/angular:directive": {
-            "prefix": "app"
-        }
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
     }
+  },
+  "projects": {
+    "mrrspeedometer": {
+      "projectType": "application",
+      "root": "apps/mrrspeedometer",
+      "sourceRoot": "apps/mrrspeedometer/src",
+      "prefix": "smitty-mrr-software",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/mrrspeedometer",
+            "index": "apps/mrrspeedometer/src/index.html",
+            "main": "apps/mrrspeedometer/src/main.ts",
+            "polyfills": "apps/mrrspeedometer/src/polyfills.ts",
+            "tsConfig": "apps/mrrspeedometer/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/mrrspeedometer/src/favicon.ico",
+              "apps/mrrspeedometer/src/assets",
+              "apps/mrrspeedometer/src/manifest.webmanifest"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/mrrspeedometer/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/mrrspeedometer/src/environments/environment.ts",
+                  "with": "apps/mrrspeedometer/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/mrrspeedometer/ngsw-config.json"
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "mrrspeedometer:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "mrrspeedometer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "mrrspeedometer:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/mrrspeedometer/src/**/*.ts",
+              "apps/mrrspeedometer/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/mrrspeedometer"
+          ],
+          "options": {
+            "jestConfig": "apps/mrrspeedometer/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mrrspeedometer-e2e": {
+      "root": "apps/mrrspeedometer-e2e",
+      "sourceRoot": "apps/mrrspeedometer-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/mrrspeedometer-e2e/cypress.json",
+            "tsConfig": "apps/mrrspeedometer-e2e/tsconfig.e2e.json",
+            "devServerTarget": "mrrspeedometer:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "mrrspeedometer:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/mrrspeedometer-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    }
+  }
 }

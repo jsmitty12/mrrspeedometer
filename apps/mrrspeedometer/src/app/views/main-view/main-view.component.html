@@ -1,0 +1,68 @@
+<div class="ui-g">
+    <mat-card class="ui-g ui-g-12 ui-md-8 ui-md-offset-2">
+        <mat-card-header>
+            <mat-card-title>Model Railroad Speed Calculator</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="ui-g-12 ui-md-6 align-center">
+                <span
+                    class="value large"
+                    [class.strikethrough]="timerRunning"
+                    >{{ speed }}</span
+                >
+                <span class="units">MPH</span>
+            </div>
+            <div class="ui-g-12 ui-md-6 align-center">
+                <span class="value">{{ time }}</span>
+                <span class="units">seconds</span>
+            </div>
+            <div class="ui-g-12 ui-md-6 align-center">
+                <mat-form-field appearance="fill">
+                    <mat-label>Scale</mat-label>
+                    <mat-select
+                        inputId="scale"
+                        [(value)]="scale"
+                        required="true"
+                    >
+                        <mat-option
+                            *ngFor="let scale of scales"
+                            [value]="scale.value"
+                        >
+                            {{ scale.label }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="ui-g-12 ui-md-6 align-center">
+                <mat-form-field appearance="fill">
+                    <mat-label>Distance</mat-label>
+                    <mat-select
+                        inputId="distance"
+                        [(value)]="distance"
+                        required="true"
+                    >
+                        <mat-option
+                            *ngFor="let distance of distances"
+                            [value]="distance.value"
+                        >
+                            {{ distance.label }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="ui-g-12 align-center">
+                <button mat-button (click)="savePreferences()">
+                    Save Preferences
+                </button>
+            </div>
+            <div class="ui-g-12 align-center">
+                <mat-button-toggle
+                    (click)="toggleTimer($event)"
+                    class="large"
+                    [disabled]="!scale && !distance"
+                    >{{ timerRunning ? 'Stop' : 'Start' }}</mat-button-toggle
+                >
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
