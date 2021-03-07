@@ -1,30 +1,19 @@
-Model Railroad Speed Calculator
-===============================
+# Model Railroad Speed Calculator
 
-Code of conduct
----------------
+## Code of conduct
 
-Please review the [Code of Conduct][CONDUCT.md] before contributing.
+Please review the [Code of Conduct][conduct.md] before contributing.
 
+## Uploading to Firebase
 
-Credits
--------
-
-Some icons in used are taken from the awesome Font Awesome library and are used under the [Creative Commons Attribution 4.0 International license](https://fontawesome.com/license).
-
-
-Uploading to Firebase
----------------------
-
-1. `yarn build`
-2. `yarn deploy`
-
+1. `npm run build`
+2. `npm run deploy`
 
 ### Initial Firebase Setup
 
 1. Authenticate
-    `yarn firebase login`
+   `npm run firebase login`
 2. List available projects
-    `yarn firebase list`
+   `npm run firebase projects:list`
 3. Set the active project
-    `yarn firebase use <project-name>`
+   `npm run firebase use <project-name>`
