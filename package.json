@@ -14,7 +14,7 @@
   "homepage": "https://github.com/jsmitty12/mrrspeedometer#readme",
   "scripts": {
     "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "nx": "nx",
     "start": "ng serve",
     "build": "ng build --prod",
@@ -55,7 +55,7 @@
     "@nrwl/angular": "12.3.6",
     "rxjs": "^6.6.6",
     "tslib": "^2.0.0",
-    "zone.js": "0.11.4"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "12.0.0",
