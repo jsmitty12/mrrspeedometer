@@ -5,11 +5,9 @@ export const PREF_DISTANCE = 'distance';
 export const PREF_SCALE = 'scale';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class PreferencesService {
-    constructor() { }
-
     save(prefs: Preferences) {
         window.localStorage.setItem(PREF_DISTANCE, prefs.distance.toString());
         window.localStorage.setItem(PREF_SCALE, prefs.scale.toString());
@@ -18,7 +16,7 @@ export class PreferencesService {
     load(): Preferences {
         return {
             distance: +window.localStorage.getItem(PREF_DISTANCE),
-            scale: +window.localStorage.getItem(PREF_SCALE)
+            scale: +window.localStorage.getItem(PREF_SCALE),
         };
     }
 }
