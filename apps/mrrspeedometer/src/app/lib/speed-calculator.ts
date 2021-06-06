@@ -17,25 +17,29 @@
  */
 
 export class SpeedCalculator {
-  // @see https://en.wikipedia.org/wiki/List_of_rail_transport_modelling_scale_standards#NMRA
+    // @see https://en.wikipedia.org/wiki/List_of_rail_transport_modelling_scale_standards#NMRA
 
-  public static calculate(distance: number, duration: number, scale: Scales): number {
-    if (distance <= 0 || duration <= 0 || scale <= 0) {
-      return 0;
+    public static calculate(
+        distance: number,
+        duration: number,
+        scale: Scales
+    ): number {
+        if (distance <= 0 || duration <= 0 || scale <= 0) {
+            return 0;
+        }
+
+        const scaleInches = distance * scale;
+        const scaleInchesPerSecond = scaleInches / duration;
+        const scaleMilesPerSecond = scaleInchesPerSecond / 12 / 5280;
+        const scaleMilesPerHour = scaleMilesPerSecond * 3600;
+
+        return parseFloat(scaleMilesPerHour.toFixed(2));
     }
-
-    let scaleInches = distance * scale;
-    let scaleInchesPerSecond = scaleInches / duration;
-    let scaleMilesPerSecond = scaleInchesPerSecond / 12 / 5280;
-    let scaleMilesPerHour = scaleMilesPerSecond * 3600;
-
-    return parseFloat(scaleMilesPerHour.toFixed(2));
-  }
 }
 
 export enum Scales {
-  Z = 220,
-  N = 160,
-  HO = 87.1,
-  O = 48
+    Z = 220,
+    N = 160,
+    HO = 87.1,
+    O = 48,
 }

@@ -57,7 +57,7 @@
             </div>
             <div class="ui-g-12 align-center">
                 <mat-button-toggle
-                    (click)="toggleTimer($event)"
+                    (click)="toggleTimer()"
                     class="large"
                     [disabled]="!scale && !distance"
                     >{{ timerRunning ? 'Stop' : 'Start' }}</mat-button-toggle
