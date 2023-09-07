@@ -33,7 +33,6 @@
         ]
     },
     "cli": {
-        "defaultCollection": "@nrwl/angular",
         "analytics": "d8179317-76a8-4824-a0ff-5731231e16c5"
     },
     "defaultProject": "mrrspeedometer",
