@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
     displayName: 'mrrspeedometer',
     preset: '../../jest.preset.js',
