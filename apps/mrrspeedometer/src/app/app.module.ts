@@ -17,7 +17,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
     declarations: [AppComponent, MainViewComponent],
-    entryComponents: [MainViewComponent],
     imports: [
         AppRoutingModule,
         BrowserAnimationsModule,
@@ -31,6 +30,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatCardModule,
         MatSnackBarModule,
     ],
-    bootstrap: [AppComponent],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}
