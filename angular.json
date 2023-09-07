@@ -1,37 +1,5 @@
 {
     "version": 1,
-    "cli": {
-        "defaultCollection": "@nrwl/angular",
-        "analytics": "d8179317-76a8-4824-a0ff-5731231e16c5"
-    },
-    "defaultProject": "mrrspeedometer",
-    "schematics": {
-        "@nrwl/angular": {
-            "application": {
-                "linter": "eslint"
-            },
-            "library": {
-                "linter": "eslint"
-            },
-            "storybook-configuration": {
-                "linter": "eslint"
-            }
-        },
-        "@nrwl/angular:application": {
-            "style": "scss",
-            "linter": "eslint",
-            "unitTestRunner": "jest",
-            "e2eTestRunner": "cypress"
-        },
-        "@nrwl/angular:library": {
-            "style": "scss",
-            "linter": "eslint",
-            "unitTestRunner": "jest"
-        },
-        "@nrwl/angular:component": {
-            "style": "scss"
-        }
-    },
     "projects": {
         "mrrspeedometer": {
             "projectType": "application",
@@ -120,7 +88,8 @@
                             "apps/mrrspeedometer/src/**/*.ts",
                             "apps/mrrspeedometer/src/**/*.html"
                         ]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 },
                 "test": {
                     "builder": "@nrwl/jest:jest",
@@ -130,7 +99,8 @@
                         "passWithNoTests": true
                     }
                 }
-            }
+            },
+            "tags": []
         },
         "mrrspeedometer-e2e": {
             "root": "apps/mrrspeedometer-e2e",
@@ -156,9 +126,12 @@
                         "lintFilePatterns": [
                             "apps/mrrspeedometer-e2e/**/*.{js,ts}"
                         ]
-                    }
+                    },
+                    "outputs": ["{options.outputFile}"]
                 }
-            }
+            },
+            "tags": [],
+            "implicitDependencies": ["mrrspeedometer"]
         }
     }
 }
