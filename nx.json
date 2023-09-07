@@ -24,14 +24,6 @@
             }
         }
     },
-    "targetDependencies": {
-        "build": [
-            {
-                "target": "build",
-                "projects": "dependencies"
-            }
-        ]
-    },
     "cli": {
         "analytics": "d8179317-76a8-4824-a0ff-5731231e16c5"
     },
@@ -62,5 +54,10 @@
             "style": "scss"
         }
     },
-    "$schema": "./node_modules/nx/schemas/nx-schema.json"
+    "$schema": "./node_modules/nx/schemas/nx-schema.json",
+    "targetDefaults": {
+        "build": {
+            "dependsOn": ["^build"]
+        }
+    }
 }
