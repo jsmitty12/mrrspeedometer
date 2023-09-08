@@ -48,6 +48,9 @@
         "build": {
             "dependsOn": ["^build"],
             "inputs": ["production", "^production"]
+        },
+        "lint": {
+            "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
         }
     },
     "namedInputs": {
@@ -58,6 +61,6 @@
             "{workspaceRoot}/tslint.json",
             "{workspaceRoot}/nx.json"
         ],
-        "production": ["default"]
+        "production": ["default", "!{projectRoot}/.eslintrc.json"]
     }
 }
