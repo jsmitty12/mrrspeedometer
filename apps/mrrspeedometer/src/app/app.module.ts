@@ -11,9 +11,9 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { MainViewComponent } from './views/main-view/main-view.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { MatCardModule } from '@angular/material/card';
-import { MatSelectModule } from '@angular/material/select';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
+import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
 
 @NgModule({
     declarations: [AppComponent, MainViewComponent],

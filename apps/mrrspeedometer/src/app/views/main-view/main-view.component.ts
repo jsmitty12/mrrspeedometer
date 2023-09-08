@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Scales, SpeedCalculator } from '../../lib/speed-calculator';
 import { PreferencesService } from '../../services/preferences.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { SelectItem } from '../../models/select-item';
 
 @Component({
