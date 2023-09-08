@@ -17,7 +17,7 @@
         "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2020 browser module main",
         "nx": "nx",
         "start": "ng serve",
-        "build": "ng build --configuration production",
+        "build": "ng build",
         "test": "ng test",
         "deploy": "firebase deploy",
         "lint": "nx workspace-lint && ng lint",
