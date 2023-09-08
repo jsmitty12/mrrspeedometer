@@ -1,0 +1,102 @@
+{
+    "name": "mrrspeedometer",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "sourceRoot": "apps/mrrspeedometer/src",
+    "prefix": "app",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:browser",
+            "options": {
+                "outputPath": "dist/apps/mrrspeedometer",
+                "index": "apps/mrrspeedometer/src/index.html",
+                "main": "apps/mrrspeedometer/src/main.ts",
+                "polyfills": "apps/mrrspeedometer/src/polyfills.ts",
+                "tsConfig": "apps/mrrspeedometer/tsconfig.app.json",
+                "assets": [
+                    "apps/mrrspeedometer/src/favicon.ico",
+                    "apps/mrrspeedometer/src/assets",
+                    "apps/mrrspeedometer/src/manifest.webmanifest"
+                ],
+                "styles": [
+                    "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                    "apps/mrrspeedometer/src/styles.scss"
+                ],
+                "scripts": [],
+                "vendorChunk": true,
+                "extractLicenses": false,
+                "buildOptimizer": false,
+                "sourceMap": true,
+                "optimization": false,
+                "namedChunks": true
+            },
+            "configurations": {
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/mrrspeedometer/src/environments/environment.ts",
+                            "with": "apps/mrrspeedometer/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "optimization": true,
+                    "outputHashing": "all",
+                    "sourceMap": false,
+                    "namedChunks": false,
+                    "extractLicenses": true,
+                    "vendorChunk": false,
+                    "buildOptimizer": true,
+                    "budgets": [
+                        {
+                            "type": "initial",
+                            "maximumWarning": "2mb",
+                            "maximumError": "5mb"
+                        },
+                        {
+                            "type": "anyComponentStyle",
+                            "maximumWarning": "6kb",
+                            "maximumError": "10kb"
+                        }
+                    ],
+                    "serviceWorker": true,
+                    "ngswConfigPath": "apps/mrrspeedometer/ngsw-config.json"
+                }
+            }
+        },
+        "serve": {
+            "executor": "@angular-devkit/build-angular:dev-server",
+            "options": {
+                "browserTarget": "mrrspeedometer:build"
+            },
+            "configurations": {
+                "production": {
+                    "browserTarget": "mrrspeedometer:build:production"
+                }
+            }
+        },
+        "extract-i18n": {
+            "executor": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+                "browserTarget": "mrrspeedometer:build"
+            }
+        },
+        "lint": {
+            "executor": "@nrwl/linter:eslint",
+            "options": {
+                "lintFilePatterns": [
+                    "apps/mrrspeedometer/src/**/*.ts",
+                    "apps/mrrspeedometer/src/**/*.html"
+                ]
+            },
+            "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+            "executor": "@nrwl/jest:jest",
+            "outputs": ["coverage/apps/mrrspeedometer"],
+            "options": {
+                "jestConfig": "apps/mrrspeedometer/jest.config.ts",
+                "passWithNoTests": true
+            }
+        }
+    },
+    "tags": []
+}
