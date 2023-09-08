@@ -71,12 +71,6 @@
             "{workspaceRoot}/tslint.json",
             "{workspaceRoot}/nx.json"
         ],
-        "production": [
-            "default",
-            "!{projectRoot}/.eslintrc.json",
-            "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-            "!{projectRoot}/tsconfig.spec.json",
-            "!{projectRoot}/jest.config.[jt]s"
-        ]
+        "production": ["default"]
     }
 }
