@@ -90,7 +90,7 @@
             "outputs": ["{options.outputFile}"]
         },
         "test": {
-            "executor": "@nrwl/jest:jest",
+            "executor": "@nx/jest:jest",
             "outputs": ["{workspaceRoot}/coverage/apps/mrrspeedometer"],
             "options": {
                 "jestConfig": "apps/mrrspeedometer/jest.config.ts",
